@@ -18,17 +18,19 @@
 #define PORTD_BASE			0x40011400U
 #define PORTE_BASE			0x40011800U
 
+#define AFIO_BASE 0x40010000U
+
 // Estructura de registros GPIO
 // (Reference Manual (RM0008), Sec. 9.2, pag. 171)
 typedef struct
 {
-	volatile uint32_t CRL;
-	volatile uint32_t CRH;
-	volatile uint32_t IDR;
-	volatile uint32_t ODR;
-	volatile uint32_t BSRR;
-	volatile uint32_t BRR;
-	volatile uint32_t LCKR;
+	volatile uint32_t CRL; //Configuration Register Low  (pag. 171)
+	volatile uint32_t CRH; //Configuration Register High (pag. 172)
+	volatile uint32_t IDR; //Input Data Register (pag. 172)
+	volatile uint32_t ODR; //Output Data Register (pag. 173)
+	volatile uint32_t BSRR;//Bit Set/Reset Register(pag. 173)
+	volatile uint32_t BRR; //Bit Reset Register (pag. 174)
+	volatile uint32_t LCKR;//Configuration Lock Register (pag. 174)
 }GPIO_RegDef;
 
 #define GPIOA (GPIO_RegDef*) PORTA_BASE
@@ -36,6 +38,18 @@ typedef struct
 #define GPIOC (GPIO_RegDef*) PORTC_BASE
 #define GPIOD (GPIO_RegDef*) PORTD_BASE
 #define GPIOE (GPIO_RegDef*) PORTE_BASE
+
+//Estructura de registros AFIO
+//(Table 60, pag.195)
+typedef struct
+{
+	volatile uint32_t EVCR;      //Event Control Register (pag. 183)
+	volatile uint32_t MAPR;      //AF remap and debug register (pag. 184)
+	volatile uint32_t EXTICR[4]; //External Interrupt Control Reg. (pag. 191)
+	volatile uint32_t MAPR2;     //AF remap and debug register 2 (pag. 193)
+}AFIO_RegDef;
+
+#define AFIO (GPIO_RegDef*) AFIO_BASE
 
 // Manejadores de configuración
 
