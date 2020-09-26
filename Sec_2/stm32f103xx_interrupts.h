@@ -45,7 +45,13 @@ enum EXTI_t {EXTI0,EXTI1,EXTI2,EXTI3,
 			 EXTI8,EXTI9,EXTI10,EXTI11,
 			 EXTI12,EXTI13,EXTI14,EXTI15};
 
-#define EXTI0_IRQNUM 6
+#define EXTI0_IRQNUM     6
+#define EXTI1_IRQNUM     7
+#define EXTI2_IRQNUM     8
+#define EXTI3_IRQNUM     9
+#define EXTI4_IRQNUM     10
+#define EXTI5_9_IRQNUM   23
+#define EXTI10_15_IRQNUM 40
 
 // ------------ Mapa de registros NVIC -------------
 //Cortex-M3 Programming Manual (PM0056), Tabla 44, pag. 128
